@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TripTracker</string>
+    <string name="action_settings">Settings</string>
+    <string name="noTrip">Es ist noch kein Trip vorhanden!</string>
+    <string name="title_activity_way_point">WayPoint</string>
+    <string name="noWayPoint">Es ist noch kein Wegpunkt vorhanden!</string>
+
+</resources>

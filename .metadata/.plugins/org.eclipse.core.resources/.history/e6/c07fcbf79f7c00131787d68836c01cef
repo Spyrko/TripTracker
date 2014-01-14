@@ -1,0 +1,6 @@
+package de.spyrko.triptracker.adapter;
+
+public class WayPointAdapter
+{
+
+}

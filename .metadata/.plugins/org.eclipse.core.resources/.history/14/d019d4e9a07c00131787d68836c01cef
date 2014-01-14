@@ -1,0 +1,9 @@
+package de.spyrko.triptracker.model;
+
+public class WayPoint
+{
+	private String  picture,
+					name,
+					date,
+					description;
+}

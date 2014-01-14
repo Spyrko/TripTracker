@@ -1,0 +1,5 @@
+package de.spyrko.triptracker.model;
+
+public class Trip {
+
+}

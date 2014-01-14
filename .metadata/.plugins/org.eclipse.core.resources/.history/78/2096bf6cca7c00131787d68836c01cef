@@ -1,0 +1,56 @@
+package de.spyrko.triptracker;
+
+import de.spyrko.triptracker.model.WayPoint;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class databaseHandler extends SQLiteOpenHelper
+{
+	private final static int DATABASE_VERSION = 1;
+	private final Context context;
+	
+	public databaseHandler(Context context)
+	{
+		super(context, context.getString(R.string.databaseName), null, DATABASE_VERSION);
+		this.context = context;
+	}
+
+	public void onCreateDBAndDBTabled()
+	{
+		try
+		{
+		} finally
+		{
+			if (myDB != null)
+				myDB.close();
+		}
+	}
+
+	public void addWayPoint(WayPoint wp)
+	{
+		
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase myDB)
+	{
+		myDB.execSQL("CREATE TABLE IF NOT EXISTS "
+				+ R.string.tripTable
+				+ " (_id integer primary key autoincrement, name varchar(100), start varchar(100), end varchar(100), bemerkungen varchar(255))"
+				+ ";");
+		myDB.execSQL("CREATE TABLE IF NOT EXISTS "
+				+ R.string.wayPointTable
+				+ " (_id integer primary key autoincrement, name varchar(100), model varchar(100), bemerkungen varchar(255), kraftstoffart integer(3), tankinhalt integer(3))"
+				+ ";");
+		
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+}

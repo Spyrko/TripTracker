@@ -1,0 +1,8 @@
+package de.spyrko.triptracker.model;
+
+public class Trip {
+	
+	private String  h1, 
+					h2,
+					date;
+}

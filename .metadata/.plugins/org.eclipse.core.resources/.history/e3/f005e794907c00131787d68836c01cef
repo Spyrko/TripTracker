@@ -1,0 +1,60 @@
+package de.spyrko.triptracker;
+
+import java.util.ArrayList;
+
+import de.spyrko.triptracker.adapter.TripAdapter;
+import de.spyrko.triptracker.model.Trip;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ListView;
+import android.content.Context;
+
+public class TripTracker extends Activity
+{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_trip_tracker);
+
+		ArrayList<Trip> trips = initTrips();
+		if (trips.isEmpty())
+		{
+			findViewById(R.id.tripList).setVisibility(View.GONE);
+		} else
+		{
+			findViewById(R.id.noTrip).setVisibility(View.GONE);
+			ListView tripList = (ListView) findViewById(R.id.tripList);
+			TripAdapter tripAdapter = new TripAdapter(((Context) this), trips);
+			tripList.setAdapter(tripAdapter);
+			tripList.setOnItemClickListener(tripAdapter);
+		}
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.trip_tracker, menu);
+		return true;
+	}
+
+	private ArrayList<Trip> initTrips()
+	{
+		ArrayList<Trip> trips = new ArrayList<Trip>();
+		Trip trip1 = new Trip();
+		Trip trip2 = new Trip();
+		trip1.setH1("Trip1");
+		trip1.setH2("Subtitle 1");
+		trip2.setH1("Trip2");
+		trip2.setH2("Subtitle 2");
+		trips.add(trip1);
+		trips.add(trip2);
+		return trips;
+	}
+
+}

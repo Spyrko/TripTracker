@@ -1,0 +1,6 @@
+package de.spyrko.triptracker;
+
+public class databaseHandler
+{
+
+}

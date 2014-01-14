@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+E:\Development\TripTracker\.metadata\.plugins\org.eclipse.jdt.core
+3371599092.index
+2595586979.index
+3066355504.index

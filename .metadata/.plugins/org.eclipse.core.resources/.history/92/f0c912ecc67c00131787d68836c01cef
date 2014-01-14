@@ -1,0 +1,29 @@
+package de.spyrko.triptracker;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+public class databaseHandler
+{
+	Context context;
+	public void onCreateDBAndDBTabled()
+	{
+		SQLiteDatabase myDB = null;
+		try
+		{
+			myDB = SQLiteDatabase.openOrCreateDatabase(context.getString(R.string.databaseName), Context.MODE_PRIVATE, null);
+			myDB.execSQL("CREATE TABLE IF NOT EXISTS "
+					+ R.string.tripTable
+					+ " (_id integer primary key autoincrement, name varchar(100), start varchar(100), end varchar(100), bemerkungen varchar(255))"
+					+ ";");
+			myDB.execSQL("CREATE TABLE IF NOT EXISTS "
+					+ R.string.wayPointTable
+					+ " (_id integer primary key autoincrement, name varchar(100), model varchar(100), bemerkungen varchar(255), kraftstoffart integer(3), tankinhalt integer(3))"
+					+ ";");
+		} finally
+		{
+			if (myDB != null)
+				myDB.close();
+		}
+	}
+}
